@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/question.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 back">
+                <!-- <img class="img-fluid w-75 my-auto mx-auto" src="/img/back.png" alt=""> -->
+            </div>
+        </div>
+    </div>
+    <div class="container px-5 my-5">
+       <div class="row">
+        <div class="col">
+            <div class="container" style="width: 90%;">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <h4></h4>
+                            </div>
+                        </div>
+                
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="qnt">Question</label>
+                                <textarea class="form-control" name="question" id="qnt"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="opt1">Option 1</label>
+                                <input class="form-control" id="opt1" type="text" name="">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="opt2">Option 2</label>
+                                <input class="form-control" id="opt2" type="text" name="">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="opt3">Option 3</label>
+                                <input class="form-control" id="opt3" type="text" name="">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="ans">Answer</label>
+                                <input class="form-control" id="ans" type="text" name="">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="mark">Question Mark</label>
+                                <input class="form-control" id="mark" type="number" name="" value="1">
+                            </div>
+                            <div class="col">
+                                <label for="mark">Question type</label>
+                                <select class="form-control text-center" name="" id="">
+                                    <option value="">Set Question Type</option>
+                                    <option value="">Type A</option>
+                                    <option value="">Type B</option>
+                                    <option value="">Type C</option>
+                                    <option value="">Type D</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <select class="form-control text-center" name="" id="">
+                                    <option value="">Select Subject</option>
+                                    <option value="">Select Subject</option>
+                                    <option value="">Select Subject</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="img">Question image</label>
+                                <input class="" id="img" type="file" name="">
+                                <p>*Max image size 1Mb*</p>
+                                <h6>Note: Please ignore image field if there is no diagram for the intended question</h6>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                           <div class="col">
+                                <button class="btn btn-primary btn-sm form-control d-block d-sm-none">Upload Question</button>
+                                <button style="float: right;" class="btn btn-primary d-sm-block d-none">Upload Question</button>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+               </div>
+        </div>
+       </div>
+    </div>
+    <script src="/javascript/ckeditor.js"></script>
+</body>
+</html>

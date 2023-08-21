@@ -1,0 +1,118 @@
+
+<%- include('./partials/upperhtml.ejs'); -%>
+
+<!-- mobile design -->
+<div class="d-block d-sm-none">
+    <div class="py-sm-1" style="background-color: ghostwhite;height: 100vh; display: flex;align-items: center">
+        <div class="container ss1-cont">
+            <div class="row d-none d-sm-block">
+                <h2 class="text-center mt-5 mt-sm-0">Welcome To Students Exam Portal</h2>
+            </div>
+            <div class="row mb-5">
+                <div class="d-sm-none col-sm-6">
+                    <div class="container">
+                        <div class="row">
+                            <div>
+                                <img style="margin-top: -20%;" class="img-fluid" src="/img/back2.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-6">
+                    <div class="container">
+                        <div class="row">
+                            <div class="mt-4 mb-3 d-none d-sm-block"><b>Please enter correct details</b></div>
+                            <div class="mt-4 mb-3 d-block d-sm-none"><b>Login with correct details to start exam</b></div>
+                            <div class="field float-sm-right">**All the fields are mandatory</div>
+                            <form action="">
+                                <input class="form-control my-1" type="text" placeholder="Full Name">
+                                <input class="form-control my-1" type="text" placeholder="Matric Number/Reg Number">
+                                <input class="form-control my-1" type="text" placeholder="Exam code">
+                                <input class="form-control my-1" type="text" placeholder="Department">
+                                <select class="form-select px-4 select" name="course">
+                                    <option selected>Choose exam</option>
+                                    <option name="selected_exam">MTH101</option>
+                                    <option name="selected_exam">Phy402</option>
+                                    <option name="selected_exam">Chem101</option>
+                                </select>
+                                <button class="btn btn-primary btn-sm mt-3 px-3" style="float: right;">Start exam</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 d-none d-sm-block">
+                    <div class="container">
+                        <div class="row">
+                            <div>
+                                <img class="img-fluid" src="/img/back2.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end of mobile design -->
+
+<!-- big viewport design -->
+    <div class="d-none d-sm-block">
+        <div class="py-sm-1" style="background-color: #0f1f60;height: 100vh; display: flex;align-items: center">
+            <div class="container my-5 py-5 ss1-cont rounded">
+                <div class="row pt-4 d-none d-sm-block">
+                    <h4 class="text-center mt-5 mt-sm-0">Welcome To Students Exam Portal</h4>
+                </div>
+                <div class="row mt-3 mb-5">
+                    <div class="d-sm-none col-sm-6">
+                        <div class="container">
+                            <div class="row">
+                                <div>
+                                    <img class="img-fluid" src="/img/back2.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+    
+                    <div class="col-sm-6">
+                        <div class="container">
+                            <div class="row">
+                                <div class="mt-4 mb-3 d-none d-sm-block"><b>Please enter correct details</b></div>
+                                <div class="mt-4 mb-3 d-block d-sm-none"><b>Login with correct details to start exam</b></div>
+                                <div class="field float-sm-right">**All the fields are mandatory</div>
+                                <form action="">
+                                    <input class="form-control my-1" type="text" placeholder="Full Name">
+                                    <input class="form-control my-1" type="text" placeholder="Matric Number/Reg Number">
+                                    <input class="form-control my-1" type="text" placeholder="Exam code">
+                                    <input class="form-control my-1" type="text" placeholder="Department">
+                                    <select class="form-select px-4 select" name="course">
+                                        <option selected>Choose exam</option>
+                                        <option name="selected_exam">MTH101</option>
+                                        <option name="selected_exam">Phy402</option>
+                                        <option name="selected_exam">Chem101</option>
+                                    </select>
+                                    <button class="btn btn-primary btn-sm mt-3 px-3" style="float: right;">Start exam</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col-sm-6 d-none d-sm-block">
+                        <div class="container">
+                            <div class="row">
+                                <div>
+                                    <img class="img-fluid" src="/img/back2.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

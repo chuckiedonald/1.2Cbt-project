@@ -1,0 +1,12 @@
+.back{
+    position: fixed;
+    top: 2rem;
+    /* width: 100%; */
+    height: 100vh; 
+    background-image: url("/img/back.png");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    opacity: 0.02;
+    z-index: -1;
+}

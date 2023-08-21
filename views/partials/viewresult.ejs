@@ -1,0 +1,24 @@
+<% let exam = ["MTH101","Bio203","CSC203","Eng201"] %>
+<div id="viewresult-cont" class="pt-5 hide" style="position: fixed;width: 100vw;height: 100vh;z-index: 2;background-color: rgba(0, 0, 0, 0.2);">
+    <div class="container-fuild">
+        <div class="row">
+            <div class="col-sm-5 my-4 mx-auto">
+                <div class="shadow rounded py-5 px-5 my-4" style="background-color: white;position: relative;">
+                    <button id="cls-viewResult-btn" type="button" class="btn-close" aria-label="Close" style="position: absolute;top: 1rem;right: 1rem;"></button>
+                    <br>
+                    <form class="pb-5" action="">
+                        <label class="pb-3" for="viewresult"><h6>Select from the option the result you want</h6></label>
+                        <select id="viewresult" class="form-select form-select-sm text-center" aria-label="Small select example">
+                            <option selected> Select exam</option>
+                           <% for(i = 0; i < exam.length; i++){ %>
+                                <option value="<%= exam[i] %>"><%= exam[i] %></option>
+                          <% } %>
+                          </select>
+                        
+                        <button class="btn btn-primary btn-sm float-end mt-4" type="submit">View result</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

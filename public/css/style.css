@@ -1,0 +1,60 @@
+.ss1-cont{
+    background-color: ghostwhite;
+}
+.select{
+	cursor: pointer;
+	width: 50%;
+}
+
+.input-tx{
+	outline: none;
+	border-radius: 5px;
+	width: 100%;
+	padding: 10px;
+}
+
+.field{
+    font-size: 0.7rem;
+    opacity: 0.5;
+    /* float: right; */
+    margin-top: -2px;
+}
+
+.aut-button{
+    background-color: brown;
+    position: absolute;
+    user-select: none;
+    border-radius: 20px;
+    padding: 5px 25px;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+.aut-button2{
+    background-color: brown;
+    position: absolute;
+    user-select: none;
+    border-radius: 20px;
+    padding: 5px 25px;
+    color: white;
+    font-size: 0.9rem;
+    cursor: default;
+    opacity: 0.5;
+}
+
+.aut-code-field{
+    width: 60%; 
+    text-align: center; 
+    visibility: hidden;
+    outline: none;
+    border: 0.5px solid lightblue;
+    border-radius: 3px;
+    float: right;
+}
+
+.login-inp{
+    width: 70%;
+    background-color: rgb(232, 240, 254);
+    margin: 5px 0;
+}
+

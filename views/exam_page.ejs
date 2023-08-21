@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examination page</title>
+    <link rel="stylesheet" href="/css/exampage.css">
+</head>
+
+<body>
+    <h3 class="">Examination page</h3>
+    <p id="timmer"></p>
+    <p id="cont"><%= userInfo.fullName %></p>
+    <div>
+      <% let sn = 0; %>
+      <form id="examForm"  method="post">
+        <%  for (let i = 0; i < questions.length; i++) { %>
+        <% sn++ %>
+        <!-- This function helps to shuffle opt array -->
+        <% function shuffleArray(array){ %>
+          <% for(let i = array.length - 1; i > 0; i--){ %>
+            <%  const j = Math.floor(Math.random()*(i+1)); %>
+            <%  [array[i], array[j]] = [array[j], array[i]]; %>
+            <% } %>
+            <% return array; %>
+        <% } %>
+            <% shuffleArray(opt); %>
+        <% op0 = opt[0] %>
+        <% op1 = opt[1] %>
+        <% op2 = opt[2] %>
+        <% op3 = opt[3] %>
+        <h4><span><%= sn %>: </span><%= questions[i].qnt %></h4>
+        <!-- <p><%= questions[i].opt1 %></p> -->
+        <p>
+          <input id="f-<%= i %>" type="radio" value="<%= questions[i][op0] %>" name="same<%= i %>">
+          <label for="f-<%= i %>"><%= questions[i][op0] %></label>
+        </p>
+        <p>
+          <input id="g-<%= i %>" type="radio" value="<%= questions[i][op1] %>" name="same<%= i %>">
+          <label for="g-<%= i %>"><%= questions[i][op1] %></label>
+        </p>
+        <p>
+          <input id="h-<%= i %>" type="radio" value="<%= questions[i][op2] %>" name="same<%= i %>">
+          <label for="h-<%= i %>"><%= questions[i][op2] %></label>
+        </p>
+        <p>
+          <input id="j-<%= i %>" type="radio" value="<%= questions[i][op3] %>" name="same<%= i %>">
+          <label for="j-<%= i %>"><%= questions[i][op3] %></label>
+        </p>
+        <input type="hidden" value="<%= questions[i].id %>" name="qntId<%= i %>">
+      <% } %>
+      <input id="hidnCnt" type="hidden" value="<%= sn %>" name="">
+      <button id="subexambtn" type="submit">submit</button>
+    </form>
+    </div>
+</body>
+<script src="/javascript/options.js"></script>
+<script src="/javascript/jquery-3.6.0.min.js"></script>
+<script src="/javascript/time.js"></script>
+</html>
+
