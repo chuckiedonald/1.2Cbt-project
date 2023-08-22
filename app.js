@@ -61,16 +61,21 @@ passport.deserializeUser(function(user, done) {
   done(null, user);
 });
 
-
+let googleUserInfo = null;
+let profileImg = null;
+let profileName = null;
 passport.use(new GoogleStrategy({
   clientID: process.env.client_ID,
   clientSecret: process.env.client_Secret,
   callbackURL: "http://localhost:3000/auth/google/admin",
 
 },
-function(accessToken, refreshToken, profile,cb) {
-  console.log(profile.emails[0].value);
-  User.findOrCreate({ googleId: profile.id,username: profile.emails[0].value}, function (err, user) {
+ 
+function(accessToken, refreshToken, profile, cb) {
+  googleUserInfo = profile;
+  profileImg = profile.photos[0].value;
+  profileName = profile.displayName;
+  User.findOrCreate({username: profile.emails[0].value},{googleId: profile.id}, function (err, user) {
     return cb(err, user);
   });
 }
@@ -90,9 +95,25 @@ app.get("/auth/google/admin",
   passport.authenticate('google', { failureRedirect: "/login" }),
   function(req, res) {
     // Successful authentication, redirect admin.
+    User.findOne({username:googleUserInfo.emails[0].value}).then((User)=>{
+      // Update fullname for google login
+      if(!User.fullName){
+        familyName = googleUserInfo.name.familyName;
+        givenName = googleUserInfo.name.givenName;
+        if(familyName==undefined){familyName = givenName}
+        if(givenName==undefined){givenName = familyName}
+          User.fullName = `${familyName} ${givenName}`;
+          User.save();
+      }
+      if(!User.googleId){
+          User.googleId = googleUserInfo.id;
+          User.save();
+      }
+    })
     res.redirect("/admin");
   });
 
+  
 app.get("/becomeExaminer", (req, res) => {
   res.render("register");
 });
@@ -103,13 +124,15 @@ app.get("/examlogin", (req, res) => {
 
 app.get("/admin", (req, res) => {
   if (req.isAuthenticated()) {
-    res.render("admin-pannel");
+    res.render("admin-pannel",{profilePic:profileImg,adminName:profileName});
   } else {
     res.redirect("/login");
   }
 });
 
 app.get("/login", (req, res) => {
+  profileImg = null;
+  profileName = "Admin name";
   res.render("login");
 });
 
@@ -131,28 +154,6 @@ app.post("/register", (req, res) => {
     }
   );
 });
-
-// app.post("/verifyUser", (req, res) => {
-//   const user = new User({
-//     username: req.body.username,
-//     password: req.body.password
-//   });
-//   req.login(user, function(err){
-//     if(err){
-//       console.log(err);
-//       res.redirect("/login");
-//     }
-//     else{
-//       passport.authenticate("local")(req,res, function(){
-//         if(!user){
-//           res.redirect("/login");
-//         }
-//         res.redirect("/admin");
-//       })
-//     }
-//   })
-// });
-
 
 let question = [
   {
@@ -203,6 +204,7 @@ app.post("/verifyUser", (req, res, next) => {
   }
   id();
   passport.authenticate("local", (err, user, info) => {
+    profileName = user.fullName;
     if (err) {
       console.error(err);
       return res.redirect("/login");

@@ -207,3 +207,9 @@ a{
 .email-cont a{
     color: whitesmoke;
 }
+
+.propic{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
