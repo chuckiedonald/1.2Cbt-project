@@ -15,6 +15,10 @@ const findOrCreate = require('mongoose-findorcreate');
 
 const app = express();
 
+// import routes
+const noneauthRoute = require("./routes/noneauth");
+app.use(noneauthRoute);
+
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -23,7 +27,7 @@ app.use(express.static("public"));
 app.set("trust", 1);
 app.use(
   session({
-    secret: "keyboard cat",
+    secret: process.env.secret,
     resave: false,
     saveUninitialized: false,
   })
@@ -81,9 +85,6 @@ function(accessToken, refreshToken, profile, cb) {
 }
 ));
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
 
 app.get('/auth/google', 
   passport.authenticate('google', {
@@ -114,13 +115,7 @@ app.get("/auth/google/admin",
   });
 
   
-app.get("/becomeExaminer", (req, res) => {
-  res.render("register");
-});
 
-app.get("/examlogin", (req, res) => {
-  res.render("examlogin");
-});
 
 app.get("/admin", (req, res) => {
   if (req.isAuthenticated()) {
@@ -130,11 +125,6 @@ app.get("/admin", (req, res) => {
   }
 });
 
-app.get("/login", (req, res) => {
-  profileImg = null;
-  profileName = "Admin name";
-  res.render("login");
-});
 
 // login or registration authorisation
 app.post("/register", (req, res) => {
@@ -241,14 +231,6 @@ app.get("/examination_page",(req, res)=>{
     res.redirect("/login");
   }
 })
-
-
-
-// authentication code
-app.get("/autCode", (req, res) => {
-  res.render("register", { da: "okay" });
-});
-
 
 
 
